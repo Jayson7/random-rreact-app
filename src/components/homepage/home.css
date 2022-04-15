@@ -1,0 +1,80 @@
+.homepage {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    background-color: rgb(11, 23, 41);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box1 {
+    width: auto;
+    padding: 0 20px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1 h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#span {
+    color: rgb(216, 25, 200) !important;
+}
+
+.box1 h6 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.icons-social {
+    width: 80%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.icons-social span {
+    margin: 5px;
+    padding: 7px 15px;
+    border-radius: 10px;
+    background-color: rgb(37, 143, 51);
+}
+
+.box2 {
+    background: url('../images/1.jpg');
+    margin: 0 10px 010px;
+    width: 40%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@media screen and (max-width: 1251px) {
+    .box1 {
+        width: 100%;
+        height: 100%;
+    }
+    .box2 {
+        width: 100%;
+        height: 100%;
+    }
+}

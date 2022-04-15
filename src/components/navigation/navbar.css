@@ -1,0 +1,21 @@
+.links a {
+    color: rgb(3, 25, 65);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.offcanvas {
+    background-color: rgb(255, 255, 255);
+}
+
+.links a:hover {
+    background: #fff;
+    color: #000;
+}
