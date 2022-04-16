@@ -21,8 +21,8 @@ const NavbarsFunc = () => {
                 height="30"
                 className="d-inline-block align-top"
                 alt="React Redux"
-              />
-              React-Redux
+              />{' '}
+              React Redux
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -31,7 +31,7 @@ const NavbarsFunc = () => {
               aria-labelledby="offcanvasNavbarLabel"
               placement="end"
             >
-              <Offcanvas.Header closeButton className="text-white">
+              <Offcanvas.Header closeButton className="text-success">
                 <Offcanvas.Title id="offcanvasNavbarLabel">
                   Choose A Project
                 </Offcanvas.Title>

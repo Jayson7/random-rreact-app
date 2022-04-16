@@ -2,9 +2,9 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, reset } from '../redux/actions/changeCount'
-import counterReducer from '../redux/reducers/addCounter'
+
 function Counter() {
-  const counter = useSelector((state) => state)
+  const counter = useSelector((state) => state.counterReducer)
 
   const dispatch = useDispatch()
   return (
@@ -15,9 +15,9 @@ function Counter() {
           <h1>{counter}</h1>
 
           <Button
-            className="m-2"
+            className="m-2
             btn
-            btn-info
+            btn-info"
             onClick={() => dispatch(increment())}
           >
             Increase
