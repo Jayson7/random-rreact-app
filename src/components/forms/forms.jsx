@@ -18,21 +18,24 @@ function monitorReducer(states, { field, value }) {
 
 const ReduxForm = () => {
   const dispatchs = useDispatch()
-
+  const formSelectors = useSelector((state) => state.loginFormReducer)
   const [states, dispatch] = useReducer(monitorReducer, initialState)
 
   const onchange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value })
 
     // output state using useSelector hook
-    // console.log(selectors)
   }
   const { username, password } = states
   return (
     <div>
       <div className="containers-form  ">
-        <br />
-        <br />
+        {/* login state */}
+        <p className="text-center text-black">
+          Welcome, {formSelectors.username}!
+        </p>
+
+        {/* end login state */}
 
         <Form
           className="mt-5   "

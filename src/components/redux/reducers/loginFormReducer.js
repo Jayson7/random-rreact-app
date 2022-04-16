@@ -1,5 +1,8 @@
 // create loginReducer from loginFormReducer
-export default function loginFormReducer(state = {}, action) {
+export default function loginFormReducer(
+    state = { username: 'Anonymous', password: '' },
+    action,
+) {
     switch (action.type) {
         case 'LOGIN':
             return {
