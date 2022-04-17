@@ -3,7 +3,7 @@ import Counter from '../counter/count'
 import Homepage from '../homepage/home'
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 import './navbar.css'
-
+import RegistrationForm from '../register/register'
 import { Navbar, Container, Offcanvas, Nav } from 'react-bootstrap'
 import logo from '../images/logo.png'
 import ReduxForm from '../forms/forms'
@@ -42,6 +42,7 @@ const NavbarsFunc = () => {
                   <Link to="/"> Home</Link>
                   <Link to="/login">Login</Link>
                   <Link to="/counter">Counter</Link>
+                  <Link to="/signup">Signup</Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -51,6 +52,7 @@ const NavbarsFunc = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="counter" element={<Counter />} />
           <Route path="login" element={<ReduxForm />} />
+          <Route path="signup" element={<RegistrationForm />} />
         </Routes>
       </BrowserRouter>
     </div>

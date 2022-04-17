@@ -7,10 +7,13 @@ import { useReducer } from 'react'
 const initialState = {
   username: '',
   password: '',
+  email: '',
+  phone: '',
+  full_name: '',
 }
-function monitorReducer(states, { field, value }) {
+function monitorReducer(regdata, { field, value }) {
   return {
-    ...states,
+    ...regdata,
     [field]: value,
   }
 }
@@ -18,30 +21,30 @@ function monitorReducer(states, { field, value }) {
 const RegistrationForm = () => {
   //   const dispatchs = useDispatch()
   //   const formSelectors = useSelector((state) => state.loginFormReducer)
-  const [states, dispatch] = useReducer(monitorReducer, initialState)
+  const [regdata, dispatch] = useReducer(monitorReducer, initialState)
 
   const onchange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value })
 
     // output state using useSelector hook
   }
-  const { username, password } = states
+  const { phone, full_name, email, username, password } = regdata
   return (
     <div>
       <div className="containers-form  ">
-        <p className="text-center text-black">Create an Account with us</p>
+        <p className="text-center text-black mt-5">Create an Account with us</p>
 
         <Form
-          className="mt-5   "
+          className="mt-3   "
           onSubmit={(event) => {
-            // console.log(username, password)
+            console.log(regdata)
             event.preventDefault()
             // send username and password to store using dispatch
 
             // dispatchs(login(username, password))
           }}
         >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-2" controlId="formBasicText">
             <Form.Label>Username</Form.Label>
             <Form.Control
               type="text"
@@ -51,12 +54,34 @@ const RegistrationForm = () => {
               required
               placeholder="Enter Username"
             />
-            <Form.Text className="text-muted">
-              We'll never share your details with anyone else.
-            </Form.Text>
           </Form.Group>
+          <Form.Group className="mb-2" controlId="formBasicText">
+            <Form.Label>Full Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="full_name"
+              value={full_name}
+              onChange={onchange}
+              required
+              placeholder="Full name"
+            />
+          </Form.Group>
+          <Form.Text className="text-muted">
+            We'll never share your details with anyone else.
+          </Form.Text>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-2" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={onchange}
+              required
+              placeholder="Your Email"
+            />
+          </Form.Group>
+          <Form.Group className="mb-2" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -67,17 +92,22 @@ const RegistrationForm = () => {
               placeholder="Password"
             />
           </Form.Group>
+          <Form.Group className="mb-2" controlId="formBasicNumber">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="number"
+              name="phone"
+              value={phone}
+              onChange={onchange}
+              required
+              placeholder="phone"
+            />
+          </Form.Group>
           <Form.Text className="text-muted">
             We'll never share your details with anyone else.
           </Form.Text>
-          <Form.Group className="mb-3">
-            <Form.Label>Gender</Form.Label>
-            <Form.Select>
-              <option>Male</option>
-              <option>Female</option>
-            </Form.Select>
-          </Form.Group>
-          <Button className="col-12 py-3 my-5" variant="primary" type="submit">
+
+          <Button className="col-12 py-3 my-2" variant="success" type="submit">
             Submit
           </Button>
         </Form>
