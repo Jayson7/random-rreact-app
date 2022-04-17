@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap'
-import './forms.css'
+import './register.css'
 
 // import { useDispatch, useSelector } from 'react-redux'
 import { useReducer } from 'react'
@@ -15,7 +15,7 @@ function monitorReducer(states, { field, value }) {
   }
 }
 
-const ReduxForm = () => {
+const RegistrationForm = () => {
   //   const dispatchs = useDispatch()
   //   const formSelectors = useSelector((state) => state.loginFormReducer)
   const [states, dispatch] = useReducer(monitorReducer, initialState)
@@ -70,6 +70,13 @@ const ReduxForm = () => {
           <Form.Text className="text-muted">
             We'll never share your details with anyone else.
           </Form.Text>
+          <Form.Group className="mb-3">
+            <Form.Label>Gender</Form.Label>
+            <Form.Select>
+              <option>Male</option>
+              <option>Female</option>
+            </Form.Select>
+          </Form.Group>
           <Button className="col-12 py-3 my-5" variant="primary" type="submit">
             Submit
           </Button>
@@ -79,4 +86,4 @@ const ReduxForm = () => {
   )
 }
 
-export default ReduxForm
+export default RegistrationForm
