@@ -3,6 +3,7 @@ import { Form, Button, Modal } from 'react-bootstrap'
 import './register.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useReducer } from 'react'
+import { Link } from 'react-router-dom'
 import { register } from '../redux/actions/registrationAction'
 const initialState = {
   username: '',
@@ -130,10 +131,12 @@ const RegistrationForm = () => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
-              Close
+              Re-edit
             </Button>
             <Button variant="primary" onClick={handleClose}>
-              Save Changes
+              <Link className="text-white text-decoration-none" to="/login">
+                Confirm
+              </Link>
             </Button>
           </Modal.Footer>
         </Modal>
