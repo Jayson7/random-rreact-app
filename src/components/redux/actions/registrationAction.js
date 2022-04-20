@@ -1,5 +1,5 @@
 //  create login action from loginFormReducer
-export const resgister = (username, password, email, full_name, phone) => {
+export const register = (username, password, email, phone, full_name) => {
     return {
         type: 'REGISTER',
         username: username,

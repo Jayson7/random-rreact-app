@@ -10,11 +10,7 @@ export default function loginFormReducer(
                 username: action.username,
                 password: action.password,
             }
-        case 'FORM_SAVER':
-            return {
-                ...state,
-                [action.formName]: action.formData,
-            }
+
         default:
             return state
     }

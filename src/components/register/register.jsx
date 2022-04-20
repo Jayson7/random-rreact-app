@@ -1,9 +1,9 @@
-import React from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { React, useState } from 'react'
+import { Form, Button, Modal } from 'react-bootstrap'
 import './register.css'
-
-// import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useReducer } from 'react'
+import { register } from '../redux/actions/registrationAction'
 const initialState = {
   username: '',
   password: '',
@@ -19,16 +19,19 @@ function monitorReducer(regdata, { field, value }) {
 }
 
 const RegistrationForm = () => {
-  //   const dispatchs = useDispatch()
-  //   const formSelectors = useSelector((state) => state.loginFormReducer)
+  const dispatchs = useDispatch()
+  const formSelectors = useSelector((state) => state.RegFormReducer)
   const [regdata, dispatch] = useReducer(monitorReducer, initialState)
-
+  const [show, setShow] = useState(false)
+  const handleShow = () => setShow(true)
+  const handleClose = () => setShow(false)
   const onchange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value })
 
     // output state using useSelector hook
   }
-  const { phone, full_name, email, username, password } = regdata
+  //  line 34 must be arranged in the format of the form below
+  const { username, full_name, email, password, phone } = regdata
   return (
     <div>
       <div className="containers-form  ">
@@ -37,11 +40,12 @@ const RegistrationForm = () => {
         <Form
           className="mt-3   "
           onSubmit={(event) => {
-            console.log(regdata)
             event.preventDefault()
             // send username and password to store using dispatch
 
-            // dispatchs(login(username, password))
+            dispatchs(register(phone, full_name, email, username, password))
+            // trigger modal
+            handleShow()
           }}
         >
           <Form.Group className="mb-2" controlId="formBasicText">
@@ -93,7 +97,7 @@ const RegistrationForm = () => {
             />
           </Form.Group>
           <Form.Group className="mb-2" controlId="formBasicNumber">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="number"
               name="phone"
@@ -111,6 +115,28 @@ const RegistrationForm = () => {
             Submit
           </Button>
         </Form>
+        {/* modal popup to display regdata after submission */}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* iterate formSelectors designed */}
+            {Object.keys(formSelectors).map((key) => (
+              <p key={key}>
+                {key}: {formSelectors[key]}
+              </p>
+            ))}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   )
